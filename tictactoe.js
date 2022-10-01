@@ -17,15 +17,28 @@ const board = document.getElementById('board')
 const winningMessage = document.getElementById('winningMessage')
 const winningMessageText = document.querySelector('[data-winning-message-text]')
 const restartButton = document.getElementById('restartButton')
+const homepage = document.getElementById('homepage')
+const xButton = document.getElementById('X')
+const oButton = document.getElementById('O')
 let circleTurn
 
-
-
-startGame()
 restartButton.addEventListener("click",startGame)
 
-function startGame(){
+xButton.addEventListener("click",()=>{
     circleTurn = false
+    homepage.classList.add('hide')
+    startGame()
+})
+oButton.addEventListener("click",()=>{
+    circleTurn =true
+    homepage.classList.add('hide')
+    startGame()
+})
+
+
+function startGame(){
+
+    board.classList.add('show')
     cellElement.forEach(cell => {
         cell.classList.remove(x_class)
         cell.classList.remove(circle_class)
@@ -101,3 +114,4 @@ function endgame(win_or_draw){
     winningMessage.classList.add('show')
 }
 
+ 

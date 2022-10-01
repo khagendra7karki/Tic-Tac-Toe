@@ -11,15 +11,87 @@ body{
     margin: 0;
 }
 
+.homepage{
+    background-color: rgba(0 , 0, 0, 0.6);
+    color: white;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 3rem;
+    position: fixed;
+
+}
+#X,
+#O{
+    height: 300px;
+    width: 300px;
+    position: relative;
+    border: 2px solid black; 
+}
+
+
+#X::before,
+#X::after{
+    content: '';
+    height: 250px;
+    width: 25px;
+    margin: auto;
+    background-color: black;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+#X::before{
+    transform: rotate(45deg);
+
+}
+
+#X::after{
+    transform: rotate(-45deg);
+}
+#O::before,
+#O::after{
+    content: '';
+    height: 250px;
+    width:250px;
+    margin: auto auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 50%;
+}
+#O::before{
+    background-color: black;
+
+}
+#O::after{
+    height: 200px;
+    width: 200px;
+    background-color: white;
+}
+
+
+#X:hover::after,
+#X:hover::before,
+#O:hover::before{
+    background-color: rgb(44, 126, 141);
+}
+
 .board{
 
     width: 100vw;
     height: 100vh;
-    display: grid;
+    display: none;
     justify-content: center;
     align-content: center;
     grid-template-columns: repeat(3, auto);
-
 }
 
 .cell{
@@ -145,4 +217,12 @@ body{
 }
 .winningMessage.show{
     display: flex;
+}
+
+.board.show{
+    display: grid;
+}
+
+.homepage.hide{
+    display: none;
 }
